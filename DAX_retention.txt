@@ -1,0 +1,87 @@
+DAX_retention
+
+Churned monthly subscribers = 
+            VAR monthly_churn = CALCULATE([Churned Customers], 'Churn-Dataset'[Contract] = "Month-to-month")
+                
+                 VAR month_churn = ROUND(DIVIDE(monthly_churn, [Churned Customers], 0) * 100, 1)
+
+                            RETURN CONCATENATE(month_churn, "%")
+
+
+Admin Tickets = CALCULATE(SUM('Churn-Dataset'[numAdminTickets]), 'Churn-Dataset'[numAdminTickets] >=1)
+
+Churned Customers = CALCULATE(COUNT('Churn-Dataset'[Churn]), 'Churn-Dataset'[Churn] = "Churned")
+
+Device Protection = CALCULATE(COUNT('Churn-Dataset'[DeviceProtection]), 'Churn-Dataset'[DeviceProtection] = "Yes")
+
+Multiple Lines = CALCULATE(COUNT('Churn-Dataset'[MultipleLines]), 'Churn-Dataset'[MultipleLines] = "Yes")
+
+Online Backup = CALCULATE(COUNT('Churn-Dataset'[OnlineBackup]), 'Churn-Dataset'[OnlineBackup] = "Yes")
+
+
+Online Security = CALCULATE(COUNT('Churn-Dataset'[OnlineSecurity]), 'Churn-Dataset'[OnlineSecurity] = "Yes")
+
+
+Phone Service = CALCULATE(COUNT('Churn-Dataset'[PhoneService]), 'Churn-Dataset'[PhoneService] = "Yes")
+
+
+Retained Customers = CALCULATE(COUNT('Churn-Dataset'[Churn]), 'Churn-Dataset'[Churn] = "Retained")
+
+Retention Rate = 
+VAR Retention_rate = ROUND(DIVIDE([Retained Customers], [Retained Customers] + [Churned Customers], 0) * 100, 1)
+                            RETURN
+                            CONCATENATE(Retention_rate, "%")
+
+Streaming TV = CALCULATE(COUNT('Churn-Dataset'[StreamingTV]), 'Churn-Dataset'[StreamingTV] = "Yes")
+
+Tech Support = CALCULATE(COUNT('Churn-Dataset'[TechSupport]), 'Churn-Dataset'[TechSupport] = "Yes")
+
+Tech Tickets = CALCULATE(SUM('Churn-Dataset'[numTechTickets]), 'Churn-Dataset'[numTechTickets] >=1)
+
+Total Contracts = COUNT('Churn-Dataset'[Contract])
+
+Total Customers = COUNT('Churn-Dataset'[customerID])
+
+Total Revenue = SUM('Churn-Dataset'[TotalCharges])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
