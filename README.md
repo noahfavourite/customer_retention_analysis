@@ -4,4 +4,4 @@ The goal of this project is to provide a comprehensive overview of our customerâ
  
 [Report]()
 
-[DAX]()
+[DAX](https://github.com/noahfavourite/customer_retention_analysis/blob/main/DAX_retention.txt)
